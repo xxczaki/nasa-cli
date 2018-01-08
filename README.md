@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://i.imgur.com/RL7qYK4g.png" href="https://www.nasa.gov/" height="256">
+  <img src="https://i.imgur.com/GNPXJQC.png" href="https://www.nasa.gov/" height="256">
   <h2 align="center">NASA CLI</h2>
   <p align="center">🚀 Download NASA Picture of the Day from your terminal!<p>
   
