@@ -11,7 +11,7 @@
 ``` 
 npm i -g nasa-cli
 ```
-# Usage
+## Usage
 
 ``` bash
 # Download Picture of the Day
