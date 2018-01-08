@@ -29,6 +29,7 @@ $ nasa -t
 $ nasa -d 171224
 ```
 ## npm Dependencies [![Known Vulnerabilities](https://snyk.io/test/github/xxczaki/nasa-cli/badge.svg)](https://snyk.io/test/github/xxczaki/nasa-cli)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fxxczaki%2Fnasa-cli.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fxxczaki%2Fnasa-cli?ref=badge_shield)
 
 - [chalk](https://www.npmjs.com/package/chalk)
 - [cheerio](https://www.npmjs.com/package/cheerio)
@@ -45,3 +46,7 @@ $ nasa -d 171224
 - [NASA APOD](https://apod.nasa.gov/apod/) for providing marvelous space photos every day!
 
 ## 
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fxxczaki%2Fnasa-cli.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fxxczaki%2Fnasa-cli?ref=badge_large)
