@@ -6,3 +6,10 @@
  <p align="center"><a href="https://github.com/sindresorhus/xo"><img src="https://img.shields.io/badge/code_style-XO-5ed9c7.svg" alt="XO Code Style"></a>
   </p>
   
+## Installation using :package: npm
+
+``` bash
+npm i -g nasa-cli
+```
+# 
+  
