@@ -8,8 +8,24 @@
   
 ## Installation using :package: npm
 
-``` bash
+``` 
 npm i -g nasa-cli
 ```
-# 
+# Usage
+
+``` bash
+# Download Picture of the Day
+
+$ nasa -t
+
+# Download Picture of the Dat from the specific date
+
+$ nasa -d YYMMDD
+
+# Examples:
+
+$ nasa -t
+$ nasa -d 171224
+```
+
   
