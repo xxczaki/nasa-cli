@@ -46,5 +46,13 @@ $ nasa -d 171224
 
 ## Disclaimer
 
-NASA CLI is not affiliated with National Aeronautics and Space Administration (NASA). All photo credits goes to original authors. The NASA insignia logo is an exclusive trademark registered by National Aeronautics and Space Administration (NASA).
+NASA CLI is not affiliated with National Aeronautics and Space Administration.
+
+## License
+
+MIT © [Antoni Kepinski](https://akepinski.me)
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fxxczaki%2Fnasa-cli.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fxxczaki%2Fnasa-cli?ref=badge_large)
+
+
 
