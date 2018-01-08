@@ -25,6 +25,7 @@ $ nasa -d YYMMDD
 # Examples:
 
 $ nasa -t
+
 $ nasa -d 171224
 ```
 
