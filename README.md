@@ -3,7 +3,7 @@
   <h2 align="center">NASA CLI</h2>
   <p align="center">🚀 Download NASA Picture of the Day from your terminal!<p>
   
- <p align="center"><a href="https://github.com/sindresorhus/xo"><img src="https://img.shields.io/badge/code_style-XO-5ed9c7.svg" alt="XO Code Style"></a>
+<p align="center"><a href="https://www.npmjs.com/package/cash-cli"><img src="https://badge.fury.io/js/cash-cli.svg" alt="npm Package"></a>  <a href="https://travis-ci.org/xxczaki/cash-cli"><img src="https://travis-ci.org/xxczaki/cash-cli.svg?branch=master" alt="Build Status"></a> <a href="https://github.com/sindresorhus/xo"><img src="https://img.shields.io/badge/code_style-XO-5ed9c7.svg" alt="XO Code Style"></a>
   </p>
   
 ## Installation using :package: npm
@@ -40,4 +40,8 @@ $ nasa -d 171224
 - [update-notifier](https://www.npmjs.com/package/update-notifier)
 - [xo](https://www.npmjs.com/package/xo)
 
-  
+## Thanks:
+
+- [NASA APOD](https://apod.nasa.gov/apod/) for providing marvelous space photos every day!
+
+## 
