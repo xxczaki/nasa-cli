@@ -28,5 +28,16 @@ $ nasa -t
 
 $ nasa -d 171224
 ```
+## npm Dependencies [![Known Vulnerabilities](https://snyk.io/test/github/xxczaki/nasa-cli/badge.svg)](https://snyk.io/test/github/xxczaki/nasa-cli)
+
+- [chalk](https://www.npmjs.com/package/chalk)
+- [cheerio](https://www.npmjs.com/package/cheerio)
+- [fs-extra](https://www.npmjs.com/package/fs-extra)
+- [got](https://www.npmjs.com/package/got)
+- [log-symbols](https://www.npmjs.com/package/log-symbols)
+- [log-update](https://www.npmjs.com/package/log-update)
+- [ora](https://www.npmjs.com/package/ora)
+- [update-notifier](https://www.npmjs.com/package/update-notifier)
+- [xo](https://www.npmjs.com/package/xo)
 
   
