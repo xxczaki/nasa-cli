@@ -8,7 +8,7 @@
   
 <p align="center"><img src="https://i.imgur.com/9EslkXb.gif" alt="Picture of the Day!"></p>
 	
-I will be really happy, if somebody could create a better GIF from Mac, than this above!
+I will be really happy, if somebody could create a better GIF from Mac, than this above! Make a PR and i will merge it :smile:
 
 ## Installation using :package: npm
 
