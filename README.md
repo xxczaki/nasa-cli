@@ -30,6 +30,11 @@ $ nasa -t
 
 $ nasa -d 171224
 ```
+
+## How it works?
+
+It downloads the latest Picture of the Day (or from specific date) from [NASA APOD](https://apod.nasa.gov/apod/) and saves it on your computer (in the directory, where terminal is executed).
+
 ## npm Dependencies [![Known Vulnerabilities](https://snyk.io/test/github/xxczaki/nasa-cli/badge.svg)](https://snyk.io/test/github/xxczaki/nasa-cli)
 
 - [chalk](https://www.npmjs.com/package/chalk)
