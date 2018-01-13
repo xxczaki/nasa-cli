@@ -22,7 +22,7 @@ npm i -g nasa-cli
 
 $ nasa -t
 
-# Download Picture of the Dat from the specific date
+# Download Picture of the Day from the specific date
 
 $ nasa -d YYMMDD
 
