@@ -12,6 +12,8 @@ I will be really happy, if somebody could create a better GIF from Mac, than thi
 
 ## Installation using :package: npm
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/xxczaki/nasa-cli.svg)](https://greenkeeper.io/)
+
 ``` 
 npm i -g nasa-cli
 ```
