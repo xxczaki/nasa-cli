@@ -11,6 +11,8 @@
 
 ## Installation using :package: npm
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/xxczaki/nasa-cli.svg)](https://greenkeeper.io/)
+
 ``` 
 npm i -g nasa-cli
 ```
