@@ -1,7 +1,9 @@
 sudo: true
 language: node_js
 node_js:
-  - '9'
-  - '8'
-  - '7'  
+  - "9"
+  - "8"
+  - "7"
+  - "6"
+  before_script: chmod +x cli.js
   after_success: npm run coverage
