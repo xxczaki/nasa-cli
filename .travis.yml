@@ -1,8 +1,7 @@
+sudo: true
 language: node_js
 node_js:
   - '9'
   - '8'
-  - '7'
-  - '6'
-  - '5'
-  - '4'
+  - '7'  
+  after_success: npm run coverage
