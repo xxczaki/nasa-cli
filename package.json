@@ -1,6 +1,6 @@
 {
   "name": "nasa-cli",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Download NASA Picture of the Day from your terminal!",
   "main": "cli.js",
   "bin": {
@@ -10,6 +10,7 @@
   "dependencies": {
     "chalk": "^2.3.0",
     "cheerio": "^1.0.0-rc.2",
+    "execa": "^0.9.0",
     "fs-extra": "^5.0.0",
     "got": "^8.0.2",
     "log-symbols": "^2.1.0",
@@ -18,13 +19,17 @@
     "update-notifier": "^2.3.0"
   },
   "devDependencies": {
+    "ava": "^0.24.0",
+    "coveralls": "^3.0.0",
+    "nyc": "^11.4.1",
     "xo": "*"
   },
   "xo": {
     "esnext": true
   },
   "scripts": {
-    "test": "xo"
+    "test": "xo && nyc --reporter=html --reporter=text ava",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
     "type": "git",
