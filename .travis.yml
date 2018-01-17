@@ -1,9 +1,10 @@
-sudo: true
+after_success: "npm run coverage"
+before_script: "chmod +x cli.js"
 language: node_js
-node_js:
+node_js: 
   - "9"
   - "8"
   - "7"
   - "6"
-  before_script: chmod +x cli.js
-  after_success: npm run coverage
+  - "5"
+  - "4"
