@@ -3,7 +3,8 @@
   <h2 align="center">NASA CLI</h2>
   <p align="center">🚀 Download NASA Picture of the Day from your terminal!<p>
   
-<p align="center"><a href="https://www.npmjs.com/package/nasa-cli"><img src="https://badge.fury.io/js/nasa-cli.svg" alt="npm Package"></a>  <a href="https://travis-ci.org/xxczaki/nasa-cli"><img src="https://travis-ci.org/xxczaki/nasa-cli.svg?branch=master" alt="Build Status"></a> <a href="https://github.com/sindresorhus/xo"><img src="https://img.shields.io/badge/code_style-XO-5ed9c7.svg" alt="XO Code Style"></a> <a href="https://greenkeeper.io"><img src="https://badges.greenkeeper.io/xxczaki/nasa-cli.svg" alt="Greenkeeper Badge"></a> <a href='https://github.com/agarrharr/awesome-cli-apps'><img src='https://awesome.re/mentioned-badge.svg' alt='Mentioned in Awesome CLI Apps' /></a>
+<p align="center"><a href="https://www.npmjs.com/package/nasa-cli"><img src="https://badge.fury.io/js/nasa-cli.svg" alt="npm Package"></a>  <a href="https://travis-ci.org/xxczaki/nasa-cli"><img src="https://travis-ci.org/xxczaki/nasa-cli.svg?branch=master" alt="Build Status"></a> <a href="https://github.com/sindresorhus/xo"><img src="https://img.shields.io/badge/code_style-XO-5ed9c7.svg" alt="XO Code Style"></a> <a href="https://greenkeeper.io"><img src="https://badges.greenkeeper.io/xxczaki/nasa-cli.svg" alt="Greenkeeper Badge"></a> <a href='https://coveralls.io/github/xxczaki/nasa-cli?branch=master'><img src='https://coveralls.io/repos/github/xxczaki/nasa-cli/badge.svg?branch=master' alt='Coverage Status' /></a>
+ <a href='https://github.com/agarrharr/awesome-cli-apps'><img src='https://awesome.re/mentioned-badge.svg' alt='Mentioned in Awesome CLI Apps' /></a>
   </p>
   
 <p align="center"><img src="https://i.imgur.com/TGG4tXh.gif" alt="Picture of the Day!"></p>
