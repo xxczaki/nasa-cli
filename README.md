@@ -7,7 +7,6 @@
   </p>
   
 <p align="center"><img src="https://i.imgur.com/TGG4tXh.gif" alt="Picture of the Day!"></p>
-	
 
 ## Installation using :package: npm
 
