@@ -8,5 +8,9 @@ test('Test --version flag.', async t => {
 
 test('Test general output with --today flag.', async t => {
 	const {stdout} = await execa('./cli.js', ['--today']);
-	t.true(stdout.length === 69);
+	t.true(stdout.length > 10);
+});
+
+test('TODO', async t => {
+	t.true((await execa.stdout('./cli.js', {cwd: __dirname})).length > 0);
 });
