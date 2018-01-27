@@ -49,7 +49,6 @@ It downloads the latest Picture of the Day (or from specific date) from [NASA AP
 - [xo](https://www.npmjs.com/package/xo)
 - [ava](https://www.npmjs.com/package/ava)
 - [execa](https://www.npmjs.com/package/execa)
-- [xo](https://www.npmjs.com/package/xo)
 
 ## Thanks:
 
