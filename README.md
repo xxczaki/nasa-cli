@@ -9,7 +9,7 @@
   
 <p align="center"><img src="https://i.imgur.com/TGG4tXh.gif" alt="Picture of the Day!"></p>
 
-## Installation using :package: npm
+## Installation 
 
 ``` 
 npm i -g nasa-cli
@@ -38,7 +38,7 @@ $ nasa -d 171224
 
 ## How it works?
 
-It downloads the latest Picture of the Day (or from specific date) from [NASA APOD](https://apod.nasa.gov/apod/) and saves it on your computer (in the directory, where terminal is executed).
+It downloads the latest Picture of the Day (or from specific date) from [NASA APOD](https://apod.nasa.gov/apod/) and saves it on your computer (in the directory, where terminal is executed :unicorn:).
 
 ## npm Dependencies [![Known Vulnerabilities](https://snyk.io/test/github/xxczaki/nasa-cli/badge.svg)](https://snyk.io/test/github/xxczaki/nasa-cli)
 
@@ -56,7 +56,7 @@ It downloads the latest Picture of the Day (or from specific date) from [NASA AP
 
 ## Thanks:
 
-- [NASA APOD](https://apod.nasa.gov/apod/) for providing marvelous space photos every day!
+- [NASA APOD :rocket:](https://apod.nasa.gov/apod/) for providing marvelous space photos every day!
 
 ## Disclaimer
 
