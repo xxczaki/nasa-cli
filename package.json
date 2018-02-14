@@ -28,7 +28,7 @@
     "esnext": true
   },
   "scripts": {
-    "test": "xo && nyc --reporter=html --reporter=text ava",
+    "test": "xo --fix && nyc --reporter=html --reporter=text ava",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "repository": {
