@@ -15,7 +15,7 @@ const ora = require('ora');
 const updateNotifire = require('update-notifier');
 const pkg = require('./package.json');
 
-updateNotifire({pkg}).notify();  // Notify about module updates
+updateNotifire({pkg}).notify(); // Notify about module updates
 
 const spinner = ora();
 const info = chalk.cyan('❯'); // Because 'logSymbols.info' on Windows looks like shit
@@ -26,7 +26,7 @@ const arg = process.argv[2];
 const inf = process.argv[3];
 const dir = ``; // Specify the directory where the image should be downloaded.
 
-if (!arg || arg === '-h' || arg === '--help') {  // Display help message
+if (!arg || arg === '-h' || arg === '--help') { // Display help message
 	console.log(`
  ${chalk.green('NASA CLI')} - Download NASA Picture of the Day from your terminal!
 
@@ -43,7 +43,7 @@ if (!arg || arg === '-h' || arg === '--help') {  // Display help message
 	process.exit(1);
 }
 
-const showExampleMessage = () => {  // Display example message
+const showExampleMessage = () => { // Display example message
 	console.log(`
  Example:
 
@@ -70,12 +70,12 @@ fse.ensureDir(dir, err => {
 	}
 });
 
-const checkConnection = () => {  // Check internet connection
+const checkConnection = () => { // Check internet connection
 	dns.lookup('apod.nasa.gov', err => {
 		if (err) {
 			logUpdate(`\n ${error} Please check your Internet Connection! \n`);
 			process.exit(1);
-		} else {  // If internet connection is good, then start searching for image
+		} else { // If internet connection is good, then start searching for image
 			logUpdate();
 			spinner.text = `Hacking to NASA servers...`;
 			spinner.start();
@@ -84,10 +84,10 @@ const checkConnection = () => {  // Check internet connection
 };
 
 const linkSplitter = data => {
-	return data.split('<a href="image')[1].split('"')[0];  // Search for picture
+	return data.split('<a href="image')[1].split('"')[0]; // Search for picture
 };
 
-const downloadImage = (imageSource, picture) => {  // Download picture
+const downloadImage = (imageSource, picture) => { // Download picture
 	const save = fs.createWriteStream(`${dir}${picture}`);
 
 	https.get(imageSource, (res, cb) => {
@@ -95,7 +95,7 @@ const downloadImage = (imageSource, picture) => {  // Download picture
 
 		save.on('finish', () => {
 			save.close(cb);
-			logUpdate(`\n${success} Done ~ ${chalk.dim(`[ ${picture.split('-').join(' ').split('.')[0]} ]`)}\n`);  // Notify the user if the download was successful
+			logUpdate(`\n${success} Done ~ ${chalk.dim(`[ ${picture.split('-').join(' ').split('.')[0]} ]`)}\n`); // Notify the user if the download was successful
 			spinner.stop();
 			save.on('error', () => {
 				process.exit(1);
@@ -105,26 +105,26 @@ const downloadImage = (imageSource, picture) => {  // Download picture
 };
 
 const displayError = () => {
-	logUpdate(`\n${error} Something went wrong :( Try again later!\n`);  // Display error message, when something went wrong
+	logUpdate(`\n${error} Something went wrong :( Try again later!\n`); // Display error message, when something went wrong
 	process.exit(1);
 };
 
 const hacking = () => {
 	logUpdate();
-	spinner.text = 'Hacked! We are sending you the image...';  // Notify the user, while downloading image
+	spinner.text = 'Hacked! We are sending you the image...'; // Notify the user, while downloading image
 };
 
 if (arg === '-t' || arg === '--today') { // Today argument
-	checkConnection();  // Check connection
+	checkConnection(); // Check connection
 	got('https://apod.nasa.gov/apod/').then(res => { // Get image url
 		hacking();
 		const $ = cheerio.load(res.body);
 		const aboutImage = `${$('center').eq(1).text().split('\n')[1].trim().split(' ').join('-')}.jpg`;
 		const link = linkSplitter(res.body);
-		const fullUrl = `https://apod.nasa.gov/apod/image${link}`;  // Get full image url
+		const fullUrl = `https://apod.nasa.gov/apod/image${link}`; // Get full image url
 
-		downloadImage(fullUrl, aboutImage);  // Download image
-	}).catch(err => {  // Catch Error
+		downloadImage(fullUrl, aboutImage); // Download image
+	}).catch(err => { // Catch Error
 		if (err) {
 			displayError(); // Display error message
 		}
@@ -148,7 +148,7 @@ if (arg === '-d' || arg === '--date') { // Specific date argument
 		downloadImage(sourceLink, imageName); // Download image
 	}).catch(err => {
 		if (err) {
-			displayError();  // Display error message
+			displayError(); // Display error message
 		}
 	});
 }
