@@ -49,7 +49,6 @@ It downloads the latest Picture of the Day (or from specific date) from [NASA AP
 - [log-symbols](https://www.npmjs.com/package/log-symbols)
 - [log-update](https://www.npmjs.com/package/log-update)
 - [ora](https://www.npmjs.com/package/ora)
-- [update-notifier](https://www.npmjs.com/package/update-notifier)
 - [xo](https://www.npmjs.com/package/xo)
 - [ava](https://www.npmjs.com/package/ava)
 - [execa](https://www.npmjs.com/package/execa)
