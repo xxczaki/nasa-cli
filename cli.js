@@ -12,10 +12,6 @@ const cheerio = require('cheerio');
 const logUpdate = require('log-update');
 const logSymbols = require('log-symbols');
 const ora = require('ora');
-const updateNotifire = require('update-notifier');
-const pkg = require('./package.json');
-
-updateNotifire({pkg}).notify(); // Notify about module updates
 
 const spinner = ora();
 const info = chalk.cyan('❯'); // Because 'logSymbols.info' on Windows looks like shit
