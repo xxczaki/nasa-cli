@@ -15,9 +15,6 @@ const ora = require('ora');
 
 const spinner = ora();
 const info = chalk.cyan('❯'); // Because 'logSymbols.info' on Windows looks like shit
-const error = logSymbols.error;
-const success = logSymbols.success;
-const warning = logSymbols.warning;
 const arg = process.argv[2];
 const inf = process.argv[3];
 const dir = ``; // Specify the directory where the image should be downloaded.
@@ -69,7 +66,7 @@ fse.ensureDir(dir, err => {
 const checkConnection = () => { // Check internet connection
 	dns.lookup('apod.nasa.gov', err => {
 		if (err) {
-			logUpdate(`\n ${error} Please check your Internet Connection! \n`);
+			logUpdate(`\n ${logSymbols.error} Please check your Internet Connection! \n`);
 			process.exit(1);
 		} else { // If internet connection is good, then start searching for image
 			logUpdate();
@@ -91,7 +88,7 @@ const downloadImage = (imageSource, picture) => { // Download picture
 
 		save.on('finish', () => {
 			save.close(cb);
-			logUpdate(`\n${success} Done ~ ${chalk.dim(`[ ${picture.split('-').join(' ').split('.')[0]} ]`)}\n`); // Notify the user if the download was successful
+			logUpdate(`\n${logSymbols.success} Done ~ ${chalk.dim(`[ ${picture.split('-').join(' ').split('.')[0]} ]`)}\n`); // Notify the user if the download was successful
 			spinner.stop();
 			save.on('error', () => {
 				process.exit(1);
@@ -101,7 +98,7 @@ const downloadImage = (imageSource, picture) => { // Download picture
 };
 
 const displayError = () => {
-	logUpdate(`\n${error} Something went wrong :( Try again later!\n`); // Display error message, when something went wrong
+	logUpdate(`\n${logSymbols.error} Something went wrong :( Try again later!\n`); // Display error message, when something went wrong
 	process.exit(1);
 };
 
@@ -129,7 +126,7 @@ if (arg === '-t' || arg === '--today') { // Today argument
 
 if (arg === '-d' || arg === '--date') { // Specific date argument
 	if (!inf) {
-		console.log(` \n ${warning} Please provide a valid date!\n`); // Inform user if the date is invalid
+		console.log(` \n ${logSymbols.warning} Please provide a valid date!\n`); // Inform user if the date is invalid
 		console.log('==================================');
 		showExampleMessage();
 	}
