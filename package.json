@@ -1,6 +1,6 @@
 {
   "name": "nasa-cli",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Download NASA Picture of the Day from your terminal!",
   "main": "cli.js",
   "bin": {

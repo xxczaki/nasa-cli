@@ -45,8 +45,8 @@ const showExampleMessage = () => { // Display example message
  ${info} 24th December 2017 [24/12/17]
  ${info} 1st January 2000   [01/01/00]
 
- $ nasa --d ${chalk.green('17')}${chalk.red('12')}${chalk.blue('24')}
- $ nasa --d ${chalk.green('00')}${chalk.red('01')}${chalk.blue('01')}
+ $ nasa --date ${chalk.green('17')}${chalk.red('12')}${chalk.blue('24')}
+ $ nasa --date ${chalk.green('00')}${chalk.red('01')}${chalk.blue('01')}
 
  Date Format:  YY/MM/DD
 		`);
