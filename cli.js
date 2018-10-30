@@ -12,6 +12,7 @@ const cheerio = require('cheerio');
 const logUpdate = require('log-update');
 const logSymbols = require('log-symbols');
 const ora = require('ora');
+const youtubeDownload = require('youtube-dl');
 
 const spinner = ora();
 const info = chalk.cyan('❯');
@@ -87,16 +88,18 @@ const getMediaFromHtml = html => {
 		const title = $('center').eq(1).text().split('\n') || $('title').text().split('-');
 		const imageName = `${title[1].trim().split(' ').join('-')}.jpg`;
 		const sourceLink = `https://apod.nasa.gov/apod/${imageLink.attr('src')}`;
-		return { sourceLink, imageName, type: 'image' };
+		return { sourceLink, fileName: imageName, type: 'image' };
 	}
 
 	const videos = $('iframe');
 	if (videos.length === 0) return;
-	const videoSrc = videos.map(function(i, el) {
+	const videoSrc = videos.map(function (i, el) {
 		return $(this).attr('src');
 	}).get()
+	const title = $('center').eq(1).text().split('\n') || $('title').text().split('-');
+	const videoName = `${title[1].trim().split(' ').join('-')}.mp4`;
 
-	return { sourceLink: videoSrc[0], imageName: undefined, type: 'video' };
+	return { sourceLink: videoSrc[0], fileName: videoName, type: 'video' };
 }
 
 // Download image
@@ -117,6 +120,19 @@ const downloadImage = (imageSource, picture) => {
 	});
 };
 
+// Download Youtube Video
+const downloadYoutubeVideo = (videoSource, videoName) => {
+	const video = youtubeDownload(videoSource);
+	const download = video.pipe(fs.createWriteStream(`${dir}${videoName}`))
+	download.on('finish', () => {
+		logUpdate(`\n${logSymbols.success} Done ~ Today is a video! ~ ${chalk.dim(`[ ${videoName.split('-').join(' ').split('.')[0]} ]`)}\n`);
+		spinner.stop();
+		download.on('error', () => {
+			process.exit(1);
+		});
+	})
+}
+
 // Error message
 const displayError = () => {
 	logUpdate(`\n${logSymbols.error} Something went wrong :( Try again later!\n`);
@@ -126,18 +142,19 @@ const displayError = () => {
 // Update
 const hacking = () => {
 	logUpdate();
-	spinner.text = 'Hacked! We are sending you the image...';
+	spinner.text = 'Hacked! We are sending you the media...';
 };
 
 // Get Media from website response
 function getMediaForResponse(res) {
-	const { sourceLink, imageName, type } = getMediaFromHtml(res.body);
+	const { sourceLink, fileName, type } = getMediaFromHtml(res.body);
 	if (type === 'image') {
-		downloadImage(sourceLink, imageName);
+		downloadImage(sourceLink, fileName);
+		return;
+	} else if (type === 'video') {
+		downloadYoutubeVideo(sourceLink, fileName);
 		return;
 	}
-	console.log(`Today is a video! Watch it here ${sourceLink}`);
-	spinner.stop();
 }
 
 // Today's image
