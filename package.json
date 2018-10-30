@@ -1,6 +1,6 @@
 {
   "name": "nasa-cli",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Download NASA Picture of the Day from your terminal!",
   "main": "cli.js",
   "bin": {
@@ -11,7 +11,7 @@
     "chalk": "^2.4.1",
     "cheerio": "^1.0.0-rc.2",
     "fs-extra": "^7.0.0",
-    "got": "^9.0.0",
+    "got": "^9.3.0",
     "log-symbols": "^2.2.0",
     "log-update": "^2.3.0",
     "ora": "^3.0.0"
@@ -44,7 +44,7 @@
     "xo-style",
     "nodejs"
   ],
-  "author": "Antoni Kepinski <hello@akepinski.me> (https://akepinski.me)",
+  "author": "Antoni Kepinski <a@kepinski.me> (https://kepinski.me)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/xxczaki/nasa-cli/issues"

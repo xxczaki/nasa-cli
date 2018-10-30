@@ -14,12 +14,13 @@ const logSymbols = require('log-symbols');
 const ora = require('ora');
 
 const spinner = ora();
-const info = chalk.cyan('❯'); // Because 'logSymbols.info' on Windows looks like shit
+const info = chalk.cyan('❯');
 const arg = process.argv[2];
 const inf = process.argv[3];
-const dir = ``; // Specify the directory where the image should be downloaded.
+const dir = '';
 
-if (!arg || arg === '-h' || arg === '--help') { // Display help message
+// Help message
+if (!arg || arg === '-h' || arg === '--help') {
 	console.log(`
  ${chalk.green('NASA CLI')} - Download NASA Picture of the Day from your terminal!
 
@@ -36,7 +37,8 @@ if (!arg || arg === '-h' || arg === '--help') { // Display help message
 	process.exit(1);
 }
 
-const showExampleMessage = () => { // Display example message
+// Example message
+const showExampleMessage = () => {
 	console.log(`
  Example:
 
@@ -63,24 +65,26 @@ fse.ensureDir(dir, err => {
 	}
 });
 
-const checkConnection = () => { // Check internet connection
+// Check connection
+const checkConnection = () => {
 	dns.lookup('apod.nasa.gov', err => {
 		if (err) {
 			logUpdate(`\n ${logSymbols.error} Please check your Internet Connection! \n`);
 			process.exit(1);
-		} else { // If internet connection is good, then start searching for image
+		} else {
 			logUpdate();
-			spinner.text = `Hacking to NASA servers...`;
+			spinner.text = 'Hacking to NASA servers...';
 			spinner.start();
 		}
 	});
 };
 
 const linkSplitter = data => {
-	return data.split('<a href="image')[1].split('"')[0]; // Search for picture
+	return data.split('<a href="image')[1].split('"')[0];
 };
 
-const downloadImage = (imageSource, picture) => { // Download picture
+// Download image
+const downloadImage = (imageSource, picture) => {
 	const save = fs.createWriteStream(`${dir}${picture}`);
 
 	https.get(imageSource, (res, cb) => {
@@ -88,7 +92,7 @@ const downloadImage = (imageSource, picture) => { // Download picture
 
 		save.on('finish', () => {
 			save.close(cb);
-			logUpdate(`\n${logSymbols.success} Done ~ ${chalk.dim(`[ ${picture.split('-').join(' ').split('.')[0]} ]`)}\n`); // Notify the user if the download was successful
+			logUpdate(`\n${logSymbols.success} Done ~ ${chalk.dim(`[ ${picture.split('-').join(' ').split('.')[0]} ]`)}\n`);
 			spinner.stop();
 			save.on('error', () => {
 				process.exit(1);
@@ -97,51 +101,54 @@ const downloadImage = (imageSource, picture) => { // Download picture
 	});
 };
 
+// Error message
 const displayError = () => {
-	logUpdate(`\n${logSymbols.error} Something went wrong :( Try again later!\n`); // Display error message, when something went wrong
+	logUpdate(`\n${logSymbols.error} Something went wrong :( Try again later!\n`);
 	process.exit(1);
 };
 
+// Update
 const hacking = () => {
 	logUpdate();
-	spinner.text = 'Hacked! We are sending you the image...'; // Notify the user, while downloading image
+	spinner.text = 'Hacked! We are sending you the image...';
 };
 
-if (arg === '-t' || arg === '--today') { // Today argument
-	checkConnection(); // Check connection
-	got('https://apod.nasa.gov/apod/').then(res => { // Get image url
+// Today's image
+if (arg === '-t' || arg === '--today') {
+	checkConnection();
+	got('https://apod.nasa.gov/apod/').then(res => {
 		hacking();
 		const $ = cheerio.load(res.body);
 		const aboutImage = `${$('center').eq(1).text().split('\n')[1].trim().split(' ').join('-')}.jpg`;
 		const link = linkSplitter(res.body);
-		const fullUrl = `https://apod.nasa.gov/apod/image${link}`; // Get full image url
+		const fullUrl = `https://apod.nasa.gov/apod/image${link}`;
 
-		downloadImage(fullUrl, aboutImage); // Download image
-	}).catch(err => { // Catch Error
-		if (err) {
-			displayError(); // Display error message
+		downloadImage(fullUrl, aboutImage);
+	}).catch(error => {
+		if (error) {
+			displayError();
 		}
 	});
 }
 
-if (arg === '-d' || arg === '--date') { // Specific date argument
+// Image from a specific date
+if (arg === '-d' || arg === '--date') {
 	if (!inf) {
-		console.log(` \n ${logSymbols.warning} Please provide a valid date!\n`); // Inform user if the date is invalid
+		console.log(` \n ${logSymbols.warning} Please provide a valid date!\n`);
 		console.log('==================================');
 		showExampleMessage();
 	}
-	checkConnection(); // Check connection
-	got(`https://apod.nasa.gov/apod/ap${inf}.html`).then(res => { // Get image url
+	checkConnection();
+	got(`https://apod.nasa.gov/apod/ap${inf}.html`).then(res => {
 		hacking();
 		const $ = cheerio.load(res.body);
 		const link = linkSplitter(res.body);
-		const imageName = `${$('title').text().split('-')[1].trim().split(' ').join('-')}.jpg`; // Get image name
-		const sourceLink = `https://apod.nasa.gov/apod/image${link}`; // Get source link
-
-		downloadImage(sourceLink, imageName); // Download image
-	}).catch(err => {
-		if (err) {
-			displayError(); // Display error message
+		const imageName = `${$('title').text().split('-')[1].trim().split(' ').join('-')}.jpg`;
+		const sourceLink = `https://apod.nasa.gov/apod/image${link}`;
+		downloadImage(sourceLink, imageName);
+	}).catch(error => {
+		if (error) {
+			displayError();
 		}
 	});
 }
