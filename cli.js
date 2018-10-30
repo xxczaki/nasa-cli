@@ -79,9 +79,25 @@ const checkConnection = () => {
 	});
 };
 
-const linkSplitter = data => {
-	return data.split('<a href="image')[1].split('"')[0];
-};
+const getMediaFromHtml = html => {
+	const $ = cheerio.load(html);
+
+	const imageLink = $('img');
+	if (imageLink.length > 0) {
+		const title = $('center').eq(1).text().split('\n') || $('title').text().split('-');
+		const imageName = `${title[1].trim().split(' ').join('-')}.jpg`;
+		const sourceLink = `https://apod.nasa.gov/apod/${imageLink.attr('src')}`;
+		return { sourceLink, imageName, type: 'image' };
+	}
+
+	const videos = $('iframe');
+	if (videos.length === 0) return;
+	const videoSrc = videos.map(function(i, el) {
+		return $(this).attr('src');
+	}).get()
+
+	return { sourceLink: videoSrc[0], imageName: undefined, type: 'video' };
+}
 
 // Download image
 const downloadImage = (imageSource, picture) => {
@@ -113,17 +129,23 @@ const hacking = () => {
 	spinner.text = 'Hacked! We are sending you the image...';
 };
 
+// Get Media from website response
+function getMediaForResponse(res) {
+	const { sourceLink, imageName, type } = getMediaFromHtml(res.body);
+	if (type === 'image') {
+		downloadImage(sourceLink, imageName);
+		return;
+	}
+	console.log(`Today is a video! Watch it here ${sourceLink}`);
+	spinner.stop();
+}
+
 // Today's image
 if (arg === '-t' || arg === '--today') {
 	checkConnection();
 	got('https://apod.nasa.gov/apod/').then(res => {
 		hacking();
-		const $ = cheerio.load(res.body);
-		const aboutImage = `${$('center').eq(1).text().split('\n')[1].trim().split(' ').join('-')}.jpg`;
-		const link = linkSplitter(res.body);
-		const fullUrl = `https://apod.nasa.gov/apod/image${link}`;
-
-		downloadImage(fullUrl, aboutImage);
+		getMediaForResponse(res);
 	}).catch(error => {
 		if (error) {
 			displayError();
@@ -141,13 +163,10 @@ if (arg === '-d' || arg === '--date') {
 	checkConnection();
 	got(`https://apod.nasa.gov/apod/ap${inf}.html`).then(res => {
 		hacking();
-		const $ = cheerio.load(res.body);
-		const link = linkSplitter(res.body);
-		const imageName = `${$('title').text().split('-')[1].trim().split(' ').join('-')}.jpg`;
-		const sourceLink = `https://apod.nasa.gov/apod/image${link}`;
-		downloadImage(sourceLink, imageName);
+		getMediaForResponse(res);
 	}).catch(error => {
 		if (error) {
+			console.log(error)
 			displayError();
 		}
 	});
