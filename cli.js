@@ -35,7 +35,7 @@ if (!arg || arg === '-h' || arg === '--help') {
   ${chalk.magenta('-h')}   ${chalk.magenta('--help')}   Show help message
   ${chalk.magenta('-e')}   ${chalk.magenta('--example')}   Show example message
  `);
-	process.exit(1);
+	process.exit(0);
 }
 
 // Example message
@@ -53,7 +53,7 @@ const showExampleMessage = () => {
 
  Date Format:  YY/MM/DD
 		`);
-	process.exit(1);
+	process.exit(0);
 };
 
 if (arg === '-e' || arg === '--example') {
@@ -88,19 +88,21 @@ const getMediaFromHtml = html => {
 		const title = $('center').eq(1).text().split('\n') || $('title').text().split('-');
 		const imageName = `${title[1].trim().split(' ').join('-')}.jpg`.replace(/[<>"\/\\|\?*:\/]/g, '');
 		const sourceLink = `https://apod.nasa.gov/apod/${imageLink.attr('src')}`;
-		return { sourceLink, fileName: imageName, type: 'image' };
+		return {sourceLink, fileName: imageName, type: 'image'};
 	}
 
 	const videos = $('iframe');
-	if (videos.length === 0) return;
+	if (videos.length === 0) {
+		return;
+	}
 	const videoSrc = videos.map(function (i, el) {
 		return $(this).attr('src');
-	}).get()
+	}).get();
 	const title = $('center').eq(1).text().split('\n') || $('title').text().split('-');
 	const videoName = `${title[1].trim().split(' ').join('-')}.mp4`;
 
-	return { sourceLink: videoSrc[0], fileName: videoName, type: 'video' };
-}
+	return {sourceLink: videoSrc[0], fileName: videoName, type: 'video'};
+};
 
 // Download image
 const downloadImage = (imageSource, picture) => {
@@ -123,15 +125,15 @@ const downloadImage = (imageSource, picture) => {
 // Download Youtube Video
 const downloadYoutubeVideo = (videoSource, videoName) => {
 	const video = youtubeDownload(videoSource);
-	const download = video.pipe(fs.createWriteStream(`${dir}${videoName}`))
+	const download = video.pipe(fs.createWriteStream(`${dir}${videoName}`));
 	download.on('finish', () => {
 		logUpdate(`\n${logSymbols.success} Done ~ Today is a video! ~ ${chalk.dim(`[ ${videoName.split('-').join(' ').split('.')[0]} ]`)}\n`);
 		spinner.stop();
 		download.on('error', () => {
 			process.exit(1);
 		});
-	})
-}
+	});
+};
 
 // Error message
 const displayError = () => {
@@ -147,13 +149,11 @@ const hacking = () => {
 
 // Get Media from website response
 function getMediaForResponse(res) {
-	const { sourceLink, fileName, type } = getMediaFromHtml(res.body);
+	const {sourceLink, fileName, type} = getMediaFromHtml(res.body);
 	if (type === 'image') {
 		downloadImage(sourceLink, fileName);
-		return;
 	} else if (type === 'video') {
 		downloadYoutubeVideo(sourceLink, fileName);
-		return;
 	}
 }
 
@@ -183,7 +183,7 @@ if (arg === '-d' || arg === '--date') {
 		getMediaForResponse(res);
 	}).catch(error => {
 		if (error) {
-			console.log(error)
+			console.log(error);
 			displayError();
 		}
 	});

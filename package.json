@@ -1,12 +1,12 @@
 {
   "name": "nasa-cli",
-  "version": "1.2.2",
+  "version": "2.0.0",
   "description": "Download NASA Picture of the Day from your terminal!",
   "main": "cli.js",
   "bin": {
     "nasa": "cli.js"
   },
-  "preferGlobal": "true",
+  "preferGlobal": true,
   "dependencies": {
     "chalk": "^2.4.1",
     "cheerio": "^1.0.0-rc.2",
@@ -18,13 +18,19 @@
     "youtube-dl": "przemyslawpluta/node-youtube-dl#3349cbb6e067b6c9e7605acfa4f9d1ccc895fb0c"
   },
   "devDependencies": {
+    "ava": "*",
+    "execa": "*",
     "xo": "*"
   },
   "xo": {
-    "esnext": true
+    "esnext": true,
+    "rules": {
+      "no-useless-escape": 0,
+      "no-unused-vars": 0
+    }
   },
   "scripts": {
-    "test": "xo"
+    "test": "xo && ava"
   },
   "repository": {
     "type": "git",
