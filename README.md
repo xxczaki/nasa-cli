@@ -40,17 +40,6 @@ $ nasa -d 171224
 
 It downloads the latest Picture of the Day (or from specific date) from [NASA APOD](https://apod.nasa.gov/apod/) and saves it on your computer (in the directory, where terminal is executed :unicorn:).
 
-## npm Dependencies [![Known Vulnerabilities](https://snyk.io/test/github/xxczaki/nasa-cli/badge.svg)](https://snyk.io/test/github/xxczaki/nasa-cli)
-
-- [chalk](https://www.npmjs.com/package/chalk)
-- [cheerio](https://www.npmjs.com/package/cheerio)
-- [fs-extra](https://www.npmjs.com/package/fs-extra)
-- [got](https://www.npmjs.com/package/got)
-- [log-symbols](https://www.npmjs.com/package/log-symbols)
-- [log-update](https://www.npmjs.com/package/log-update)
-- [ora](https://www.npmjs.com/package/ora)
-- [xo](https://www.npmjs.com/package/xo)
-
 ## Thanks:
 
 - [NASA APOD :rocket:](https://apod.nasa.gov/apod/) for providing marvelous space photos every day!
@@ -61,7 +50,7 @@ NASA CLI is not affiliated with National Aeronautics and Space Administration.
 
 ## License
 
-MIT © [Antoni Kepinski](https://akepinski.me)
+MIT
 
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fxxczaki%2Fnasa-cli.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fxxczaki%2Fnasa-cli?ref=badge_large)
 
