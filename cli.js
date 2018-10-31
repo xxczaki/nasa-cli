@@ -86,7 +86,7 @@ const getMediaFromHtml = html => {
 	const imageLink = $('img');
 	if (imageLink.length > 0) {
 		const title = $('center').eq(1).text().split('\n') || $('title').text().split('-');
-		const imageName = `${title[1].trim().split(' ').join('-')}.jpg`;
+		const imageName = `${title[1].trim().split(' ').join('-')}.jpg`.replace(/[<>"\/\\|\?*:\/]/g, '');
 		const sourceLink = `https://apod.nasa.gov/apod/${imageLink.attr('src')}`;
 		return { sourceLink, fileName: imageName, type: 'image' };
 	}
