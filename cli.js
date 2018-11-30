@@ -32,7 +32,7 @@ if (!arg || arg === '-h' || arg === '--help') {
   ${chalk.magenta('-d')}   ${chalk.magenta('--date')}      Download Picture of the Dat from the specific date
 
  Help:
-  ${chalk.magenta('-h')}   ${chalk.magenta('--help')}   Show help message
+  ${chalk.magenta('-h')}   ${chalk.magenta('--help')}      Show help message
   ${chalk.magenta('-e')}   ${chalk.magenta('--example')}   Show example message
  `);
 	process.exit(0);
