@@ -29,7 +29,7 @@ if (!arg || arg === '-h' || arg === '--help') {
 
  Options:
   ${chalk.magenta('-t')}   ${chalk.magenta('--today')}     Download Picture of the Day
-  ${chalk.magenta('-d')}   ${chalk.magenta('--date')}      Download Picture of the Dat from the specific date
+  ${chalk.magenta('-d')}   ${chalk.magenta('--date')}      Download Picture of the Date from the specific date
 
  Help:
   ${chalk.magenta('-h')}   ${chalk.magenta('--help')}      Show help message
