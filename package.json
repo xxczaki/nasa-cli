@@ -15,7 +15,8 @@
     "log-symbols": "^2.2.0",
     "log-update": "^2.3.0",
     "ora": "^3.0.0",
-    "youtube-dl": "przemyslawpluta/node-youtube-dl#3349cbb6e067b6c9e7605acfa4f9d1ccc895fb0c"
+    "youtube-dl": "przemyslawpluta/node-youtube-dl#3349cbb6e067b6c9e7605acfa4f9d1ccc895fb0c",
+    "snyk": "^1.316.1"
   },
   "devDependencies": {
     "ava": "*",
@@ -30,7 +31,9 @@
     }
   },
   "scripts": {
-    "test": "xo && ava"
+    "test": "xo && ava",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -56,5 +59,6 @@
   "bugs": {
     "url": "https://github.com/xxczaki/nasa-cli/issues"
   },
-  "homepage": "https://github.com/xxczaki/nasa-cli#readme"
+  "homepage": "https://github.com/xxczaki/nasa-cli#readme",
+  "snyk": true
 }
