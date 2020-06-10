@@ -8,7 +8,7 @@
   },
   "preferGlobal": true,
   "dependencies": {
-    "chalk": "^2.4.1",
+    "chalk": "^4.1.0",
     "cheerio": "^1.0.0-rc.2",
     "fs-extra": "^7.0.0",
     "got": "^9.3.0",
