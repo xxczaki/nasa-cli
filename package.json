@@ -14,7 +14,7 @@
     "got": "^9.3.0",
     "log-symbols": "^2.2.0",
     "log-update": "^2.3.0",
-    "ora": "^3.0.0",
+    "ora": "^4.1.0",
     "youtube-dl": "przemyslawpluta/node-youtube-dl#3349cbb6e067b6c9e7605acfa4f9d1ccc895fb0c"
   },
   "devDependencies": {
